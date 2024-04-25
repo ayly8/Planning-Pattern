@@ -6,6 +6,7 @@
       <title>Planning Pal</title>
    </head>
    <body>
+      <script src="script.js"></script>
       <div class="top">
          <div class="header">
             Planning Pal
@@ -23,21 +24,19 @@
       </div>
       <div class="bottom">
          <div class="form-container">
-            <label for="xPrompt_plan">What are you planning?</label>
-            <input type="text" id="xPrompt_plan" name="xPrompt_plan">
-            <label for="yPrompt_who">Who is the plan for?</label>
-            <input type="text" id="yPrompt_who" name="yPrompt_who">
-            <label for="zPrompt_what">What is the plan about?</label>
-            <input type="text" id="zPrompt_what" name="zPrompt_what">
+            <label for="x">What are you planning?</label>
+            <input type="text" id="x" name="x">
+            <label for="y">Who is the plan for?</label>
+            <input type="text" id="y" name="y">
+            <label for="z">What is the plan about?</label>
+            <input type="text" id="z" name="z">
          </div>
          <div class="output-container">
             <div class="suggestion">
                <h2>Sample Suggestion</h2>
-               <button id="suggestion_btn">Hear Plan</button>
+               <button id="suggestion_btn" onclick="display_sug()">Hear Plan</button>
             </div>
-            <div class="output">
-               <p>test</p>
-            </div>
+            <p id="suggestion_result"></p>
          </div>
       </div>
    </body>
