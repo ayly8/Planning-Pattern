@@ -1,14 +1,14 @@
 function display_sug() {
-   var x = document.getElementById("x").value;
+    var x = document.getElementById("x").value;
     var y = document.getElementById("y").value;
     var z = document.getElementById("z").value;
 
-    fetch('/get_suggestion', {
+    fetch('/generate_plan', {
         method: 'POST',
         headers: {
-            'Content-Type': 'application/x-www-form-urlencoded',
+            'Content-Type': 'application/json'
         },
-        body: 'x=' + encodeURIComponent(x) + '&y=' + encodeURIComponent(y) + '&z=' + encodeURIComponent(z)
+        body: JSON.stringify({x: x, y: y, z: z})
     })
     .then(response => response.json())
     .then(data => {

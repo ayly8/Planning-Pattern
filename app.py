@@ -1,30 +1,32 @@
-from flask import Flask, render_template, request
-import openai import OpenAI
+from openai import OpenAI
+from flask import Flask, request, jsonify
 
 app = Flask(__name__)
 
-# OpenAI API key
-api_key = 'YOUR_API_KEY_HERE'  # Replace with your actual API key
-openai.api_key = api_key
+# Set up OpenAI API key
+client = OpenAI(api_key="")
 
-@app.route('/', methods=['GET', 'POST'])
-def index():
-    suggestions = []
-    if request.method == 'POST':
-        x = request.form['x']
-        y = request.form['y']
-        z = request.form['z']
-
-        prompt = f"Plan {x} for {y} about {z}"
-        response = openai.Completion.create(
-            engine="text-davinci-002",
-            prompt=prompt,
-            temperature=0.5,
-            max_tokens=100
-        )
-        suggestions.append(response.choices[0].text.strip())
-
-    return render_template('index.html', suggestions=suggestions)
+@app.route('/generate_plan', methods=['POST'])
+def generate_plan():
+   data = request.get_json()
+   x = data['x']
+   y = data['y']
+   z = data['z']
+    
+   prompt = f"Plan {x} for {y} about {z}"
+   response = client.chat.completions.create(
+      model="gpt-3.5-turbo",
+      messages=[{"role": "user",
+                 "content": prompt}],
+      temperature=0.6,
+      max_tokens=500,
+      top_p=1,
+      frequency_penalty=0,
+      presence_penalty=0
+   )
+   suggested_plan = response.choices[0].message.content()
+    
+   return jsonify({'suggested_plan': suggested_plan})
 
 if __name__ == '__main__':
     app.run(debug=True)
