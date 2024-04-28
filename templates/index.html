@@ -2,13 +2,13 @@
 <html lang="en">
    <head>
       <meta charset="UTF-8">
-      <link rel="stylesheet" href="style.css">
+      <link rel="stylesheet" href="{{url_for('static', filename='css/style.css')}}">
       <title>Planning Pal</title>
    </head>
    <body>
-      <script src="script.js"></script>
+      <script src="{{url_for('static', filename='js/script.js')}}"></script>
       <div class="top">
-         <div class="header">
+         <div class="header"
             Planning Pal
          </div>
          <div class="head-container">
@@ -18,7 +18,7 @@
                <p>Just enter in the corresponding information and a sample plan will be suggested!</p>
             </div>
             <div class="right">
-               <img src="teddybear.jpeg" alt="teddy bears reading" width="350" height="250">
+               <img src="{{url_for('static', filename='assets/teddybear.jpeg')}}" alt="teddy bears reading" width="350" height="250">
             </div>
          </div>
       </div>

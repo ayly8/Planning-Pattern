@@ -12,6 +12,8 @@ function display_sug() {
     })
     .then(response => response.json())
     .then(data => {
-        document.getElementById("suggestion_result").innerText = data.suggestion;
+        document.getElementById("suggestion_result").innerText = data.suggested_plan;
     });
+    // document.getElementById("suggestion_result").innerText = "test"
 }
+
