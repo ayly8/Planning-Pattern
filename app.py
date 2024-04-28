@@ -1,10 +1,14 @@
+import os
+from dotenv import load_dotenv, find_dotenv
 from flask import Flask, request, jsonify, render_template
 from openai import OpenAI
 
 app = Flask(__name__)
+load_dotenv(find_dotenv())
+api_key = os.environ.get("API_KEY")
 
-# Set up OpenAI API key
-client = OpenAI(api_key="")
+# set up OpenAI API key
+client = OpenAI(api_key=api_key)
 
 # create api endpoint for home/base page to handle GET requests
 @app.route('/', methods=['GET'])
