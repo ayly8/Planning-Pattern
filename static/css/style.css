@@ -2,6 +2,7 @@ body {
    margin: 0;
 }
 
+/* styling for top part of website */
 .top {
    background: #a67459;
 }
@@ -18,6 +19,7 @@ img {
    border-radius: 3px;
 }
 
+/* styling for bottom part of website */
 .bottom {
    padding: 16px;
 }
