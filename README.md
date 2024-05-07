@@ -1,4 +1,4 @@
-# CS 4990.01 Prompt Engineering Final Project - Planning Pal
+# CS 4990.01 Final Project - Planning Pal
 
 This website is designed to help users plan anything or to help them get started with planning something if they are stuck. 
 
